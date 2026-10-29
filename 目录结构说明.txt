@@ -1,0 +1,47 @@
+02_实验二_Hello_miniEuler/
+├── .vscode/
+│   └── settings.json               配置本工程的编辑器行为
+├── src/
+│   ├── CMakeLists.txt              定义工程交叉编译与链接规则
+│   ├── aarch64-qemu.ld             指定裸机程序入口及内存段布局
+│   ├── bsp/
+│   │   ├── CMakeLists.txt          定义 BSP 源文件及构建配置
+│   │   ├── print.c                  实现 PL011 串口输出和 PRT_Printf
+│   │   ├── prt_reset_vector.S       设置启动入口并调用 main
+│   │   ├── start.S                  初始化启动状态并转入 C 程序
+│   │   └── vsnprintf_s.c            实现基础版格式化输出函数
+│   ├── include/
+│   │   └── prt_typedef.h            定义工程通用的基本数据类型
+│   └── main.c                       调用串口打印输出字符画和测试文本
+├── 实验截图/                         保存实验过程、代码及运行结果截图
+├── 作业/
+│   ├── libboundscheck/
+│   │   ├── include/                 libboundscheck 对外头文件
+│   │   ├── src/                     libboundscheck 库实现源码
+│   │   └── LICENSE                  库的许可证
+│   ├── print_no_fifo.c              关闭 UART FIFO 并通过 TXFE 轮询发送
+│   └── securec_demo/
+│       ├── bsp/
+│       │   ├── CMakeLists.txt       构建 securec、兼容层及 BSP 源码
+│       │   ├── print.c               通过 securec 格式化并输出串口文本
+│       │   ├── securec/              libboundscheck 源码、头文件与裸机兼容层
+│       │   ├── prt_reset_vector.S    设置启动入口并调用 main
+│       │   └── start.S               初始化启动状态并转入 C 程序
+│       ├── include/
+│       │   └── prt_typedef.h         定义工程通用的基本数据类型
+│       ├── CMakeLists.txt            配置 securec_demo 的交叉编译工具链
+│       ├── aarch64-qemu.ld            指定裸机程序入口及内存段布局
+│       ├── build.sh                   清理、配置并编译 securec_demo
+│       └── main.c                     调用 securec 版本 PRT_Printf 输出测试文本
+├── gen_fig_chain.py                  生成 PRT_Printf 调用链示意图
+├── gen_fig_uartfr.py                 生成 UARTFR 状态位示意图
+├── makeMiniEuler.sh                  配置并编译基础工程
+├── runMiniEuler.sh                   在 QEMU virt 上运行基础工程
+├── banner.txt                        保存字符画文本
+├── 操作指南.md
+├── virt.dtb                          QEMU 导出的二进制设备树
+├── virt.dts                          设备树的可读文本形式
+├── 官方网页原文.rst
+├── 实验二：Hello miniEuler.docx
+├── 网页代码段_完整.txt
+└── 网页命令索引.md
